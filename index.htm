@@ -543,6 +543,13 @@
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main">
 					<div class="entry-content">
+						<form class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2" style="margin:3%;font-size: 200%;">
+								<i class="fas fa-search" aria-hidden="true"></i>
+								<input class="form-control form-control-sm ml-3 w-100"  type="text" placeholder="Search people"
+								  aria-label="Search">
+							  </form>
+
+							  
 						<div class="column"
 							style="font-size: 70%; box-shadow:0 8px 16px 0 rgba(0,0,0,0.281), 0 12px 30px 0 rgba(0,0,0,0.281);margin:10px;text-align:justify;line-height:1.3;">
 							
@@ -550,17 +557,18 @@
 									<table id="example" class="table table-striped table-bordered" style="width:100%">
 											<thead>
 												<tr><!-- Search form -->
-													<div class="active-pink-4 mb-4">
-															<input style="padding: 3%; " class="form-control" type="text" placeholder="Search" aria-label="Search">
-														  </div>
 												</tr>
 
 												<tr>
 													
-													<th class="th-sm">id</th>
+												
 													<th class="th-sm">Name</th>
-													<th class="th-sm">phone</th>
 													<th class="th-sm">email address</th>
+													<!-- <th class="th-sm">phone</th> -->
+													<th class="th-sm">center</th>
+													<th class="th-sm">province</th>
+													<th class="th-sm">posicion</th>
+
 												</tr>
 								
 											</thead>
@@ -762,8 +770,7 @@
 		</ul>
 	</div>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-
+ 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>	
@@ -771,13 +778,17 @@
 		
 				$(document).ready(async function () {
 						const res = await axios.get('https://script.google.com/macros/s/AKfycbxFPRq-4fY_oUSdkIkzf-4grcdcHSbbiZUNpsjzDVKhFvyFn0c/exec');
-						const jres = await res.data.user;
+						const jres = await res.data;
+						console.log(res)
 						const table = document.querySelector('#example');
 						await jres.forEach(async function (datarow) {
 							let newRow = await document.createElement('tr');
 								newRow.setAttribute('class','rows-employees');
 							for (const property in datarow) {
-								if (datarow.hasOwnProperty(property)) {
+								if (datarow.hasOwnProperty(property) 
+								&& property !=='id'
+								&& property !=='phone'
+								) {
 									let cell = await document.createElement('td');
 									cell.textContent = datarow[property];
 									newRow.appendChild(cell);

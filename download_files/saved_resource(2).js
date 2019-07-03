@@ -340,50 +340,50 @@ var HighlanderComments = jQuery.extend( HighlanderComments, {
 			}
 		} );
 
-		// Comment area auto-sizing and tab handling
-		jQuery( 'textarea#comment' )
-			.autoResize({
-				animate: false,
-				animateCallback: HighlanderComments.resizeCallback
-			})
-			.css( 'resize', 'none' )
-			.trigger('change.dynSiz')
-			.focus( function() { HighlanderComments.hideLabels( jQuery(this) ); } )
-			.blur( function() { HighlanderComments.showLabels( jQuery(this) ); } )
-			.keydown( function( e ) {
-				if ( 'undefined' != typeof e.keyCode && 9 == e.keyCode ) { // TAB key
-					e.preventDefault();
-					if ( 'guest' == jQuery( '#hc_post_as' ).val() ) {
-						if ( 1 == HighlanderComments.comment_registration ) {
-							jQuery( '#postas-wordpress' ).focus();
-						} else {
-							jQuery( '#email' ).focus();
-						}
-					} else {
-						jQuery( '#comment-submit' ).focus();
-					}
-				}
-				if (
-					HighlanderComments.isCommandOrControlKeyDown( e ) &&
-					HighlanderComments.keyCodeReturn === e.which
-				) {
-					jQuery( "#comment-submit" ).click();
-				}
-			} )
-			.keyup( function() { HighlanderComments.fillShareText( jQuery(this) ); } )
-			.one( 'focus', function() {
-				var googlePlusSignIn = jQuery( '#googleplus-sign-in' );
-				if ( googlePlusSignIn.length < 1 ) {
-					return;
-				}
+		// // Comment area auto-sizing and tab handling
+		// jQuery( 'textarea#comment' )
+		// 	.autoResize({
+		// 		animate: false,
+		// 		animateCallback: HighlanderComments.resizeCallback
+		// 	})
+		// 	.css( 'resize', 'none' )
+		// 	.trigger('change.dynSiz')
+		// 	.focus( function() { HighlanderComments.hideLabels( jQuery(this) ); } )
+		// 	.blur( function() { HighlanderComments.showLabels( jQuery(this) ); } )
+		// 	.keydown( function( e ) {
+		// 		if ( 'undefined' != typeof e.keyCode && 9 == e.keyCode ) { // TAB key
+		// 			e.preventDefault();
+		// 			if ( 'guest' == jQuery( '#hc_post_as' ).val() ) {
+		// 				if ( 1 == HighlanderComments.comment_registration ) {
+		// 					jQuery( '#postas-wordpress' ).focus();
+		// 				} else {
+		// 					jQuery( '#email' ).focus();
+		// 				}
+		// 			} else {
+		// 				jQuery( '#comment-submit' ).focus();
+		// 			}
+		// 		}
+		// 		if (
+		// 			HighlanderComments.isCommandOrControlKeyDown( e ) &&
+		// 			HighlanderComments.keyCodeReturn === e.which
+		// 		) {
+		// 			jQuery( "#comment-submit" ).click();
+		// 		}
+		// 	} )
+		// 	.keyup( function() { HighlanderComments.fillShareText( jQuery(this) ); } )
+		// 	.one( 'focus', function() {
+		// 		var googlePlusSignIn = jQuery( '#googleplus-sign-in' );
+		// 		if ( googlePlusSignIn.length < 1 ) {
+		// 			return;
+		// 		}
 
-				pm( {
-					target: googlePlusSignIn[0].contentWindow,
-					type: 'googlePlusLoadJS',
-					data: 0,
-					url: 'https://public-api.wordpress.com'
-				} );
-			});
+		// 		pm( {
+		// 			target: googlePlusSignIn[0].contentWindow,
+		// 			type: 'googlePlusLoadJS',
+		// 			data: 0,
+		// 			url: 'https://public-api.wordpress.com'
+		// 		} );
+		// 	});
 
 		// Client-side form validation
 		jQuery( '#commentform' ).submit( function() {

@@ -12,6 +12,7 @@
         font-display: white;
         padding: .25em;
         text-decoration: none;
+        position:relative;bottom:10px;
       }
       
     .communitywidget:hover {
@@ -25,8 +26,16 @@
         border-bottom: 0;
         padding: .3em;
         text-decoration: none;
-        position:relative;bottom:10px;
+        position:relative;bottom:20px;
       }
       #header-menu :hover{
           text-decoration: none;
       }
+
+    
+      
+      .custom-select-md:focus{
+        color: white ;
+        background-color: rgb(19,83,147);
+      }
+    

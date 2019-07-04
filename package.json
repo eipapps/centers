@@ -1,0 +1,25 @@
+{
+  "name": "dle-eip",
+  "version": "1.0.0",
+  "description": "This is the app for eip",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eipapps/centers.git"
+  },
+  "keywords": [
+    "dlee"
+  ],
+  "author": "dle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eipapps/centers/issues"
+  },
+  "homepage": "https://github.com/eipapps/centers#readme",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}

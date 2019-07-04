@@ -262,8 +262,7 @@
 	<script type="text/javascript" src="./download_files/saved_resource(1).js"></script>
 	<link rel="stylesheet" id="all-css-0-2" href="./download_files/style.css" type="text/css" media="all">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/msdropdown/dd.css" />	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
@@ -495,32 +494,62 @@
 			</div><!-- .menu-wrapper -->
 		</header><!-- #masthead -->
 
-		<div id="content" class="site-content">
+		<div id="content" class="site-content" style="display: inline-block;   width: 90%;">
 			<div id="primary" class="content-area">
-				<main id="main" class="site-main">
-					<div class="entry-content">
-						<!-- <form class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2"
-							style="margin:3%;font-size: 200%;">
+				<main id="main" class="site-main" >
+					<div class="entry-content" >
+                            <h1 class="display-3" style="text-align:center; margin-left: 15%"> Lesson plan repository</h1>
+                            <!-- search engine -->
+								<form class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2"
+							style="margin:1%;font-size: 200%; width: 120%;">
 							<i class="fas fa-search" aria-hidden="true"></i>
-							<input class="form-control form-control-sm ml-3 w-100" type="text"
-								placeholder="Search people..." aria-label="Search" style="padding: 3%; font-size: 50%">
-						</form> -->
-						
-						<div class="table-responsive-md"
-							style="font-size: 70%; box-shadow:0 8px 16px 0 rgba(0,0,0,0.281), 0 12px 30px 0 rgba(0,0,0,0.281);margin:10px;text-align:justify;line-height:1.3;">
+							<input class="form-control form-control-sm w-100" type="text"
+								placeholder=" Go ahead!   Search Lesson Plans..." aria-label="Search" style="padding: 3%; font-size: 50%">
+                        </form>
+                        <!--Blue select-->
+                        <div style="display: inline-block;   width: 100%; justify-content: center">
+                            <select id="series" class="custom-select-md mt-2"
+                            style="float:left; margin:1%;font-size: 100%; width: 40%; border-radius: 5%; font-family: inherit;">
+                                    <option  selected>select series</option>
+                                    
+                               
+                                  </select>
+                            <select id="level" class="custom-select-md mt-2"
+                            style="float:left; margin:1%; margin-right:10px; font-size: 100%; width: 40%; border-radius: 5%; font-family: inherit;">
+                                    <option  selected>select level</option>
+                                    <option  value="1">basic 1</option>
+                                    <option  value="1">basic 2</option>
+                                    <option  value="2">Intermediate 1</option>
+                                    <option  value="2">Intermediate 2</option>
+                                    <option  value="3">advanced 1</option>
+                                  </select>
+
+
+                        </div>
+      <!--/Blue select-->
+                        <!-- table-->
+						<div class="container"
+							style="font-size: 70%; width: 120%; box-shadow:0 8px 16px 0 rgba(0,0,0,0.281), 0 12px 30px 0 rgba(0,0,0,0.281);margin:10px;text-align:justify;line-height:1.3;">
 							<section>
-								<div id="display" style="padding: 2%">
-									<table id="tblReportResultsDemographics"  class="table table-striped table-bordered " cellspacing="0" width="100%" >
-										<thead>
-											<tr>
-												<th  scope="col">Name</th>
-												<th  scope="col">center</th>
-												<th  scope="col">email address</th>
-												<th  scope="col">province</th>
-												<th  scope="col">position</th>
-											</tr>
-										</thead>
-										<tbody>
+								<div id="display"  class="table-responsive-xl">
+									<table id="tblReportResultsDemographics"  class="table table-striped w-auto" cellspacing="0" width="100%" >
+                                        <div style="position:fixed;">
+                                            <thead >
+                                                <tr class="flex-row" scope="row">
+                                                    <th  class="flex-column" scope="col">Series</th>
+                                                    <th  class="flex-column" scope="col">File</th>
+                                                    <th  class="flex-column" scope="col">Type</th>
+                                                    <th  class="flex-column" scope="col">Download</th>
+                                                    <th  class="flex-column" scope="col">Size</th>
+                                                    <th  class="flex-column" scope="col">Link</th>
+                                                    <th  class="flex-column" scope="col">Last Udated</th>
+                                                    <th  class="flex-column" scope="col">Owner</th>
+                                                    
+                                                </tr class="flex-row" scope="row">
+                                            </thead>
+
+                                        </div>
+										<tbody class="tBody">
 
 										</tbody>
 									</table>
@@ -597,11 +626,7 @@
 
 	<!-- <div style="display:none"> -->
 	</div>
-	<!-- <script type="text/javascript">
-		/* <![CDATA[ */
-		var HighlanderComments = { "loggingInText": "Logging In\u2026", "submittingText": "Posting Comment\u2026", "postCommentText": "Post Comment", "connectingToText": "Connecting to %s", "commentingAsText": "%1$s: You are commenting using your %2$s account.", "logoutText": "Log Out", "loginText": "Log In", "connectURL": "https:\/\/eipschool.wordpress.com\/public.api\/connect\/?action=request&domain=eip.school.blog", "logoutURL": "https:\/\/eipschool.wordpress.com\/wp-login.php?action=logout&_wpnonce=00a0662105", "homeURL": "https:\/\/eip.school.blog\/", "postID": "145", "gravDefault": "identicon", "enterACommentError": "Please enter a comment", "enterEmailError": "Please enter your email address here", "invalidEmailError": "Invalid email address", "enterAuthorError": "Please enter your name here", "gravatarFromEmail": "This picture will show whenever you leave a comment. Click to customize it.", "logInToExternalAccount": "Log in to use details from one of these accounts.", "change": "Change", "changeAccount": "Change Account", "comment_registration": "", "userIsLoggedIn": "", "isJetpack": "", "text_direction": "ltr" };
-/* ]]> */
-	</script> -->
+	
 	<script type="text/javascript" src="./download_files/saved_resource(2).js"></script>
 	<link rel="stylesheet" id="all-css-0-3" href="./download_files/saved_resource(3).css" type="text/css" media="all">
 	<script type="text/javascript">
@@ -653,13 +678,11 @@
 		</ul>
 	</div>
 	</div>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-	<script src="./download_files/table.js"></script>
+    <script src="./download_files/lessonPtable.js"></script>
+    
 	<script src="./download_files/w.js" type="text/javascript" async="" defer=""></script>
 	<script type="text/javascript">
 		_tkq = window._tkq || [];

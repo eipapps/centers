@@ -17,13 +17,21 @@ function LoadCurrentReport(oResults) {
             { "data" : "posicion" }
         ]
     });
+    return true;
 }
 
 
 $(document).ready(async function () {
+    $('#tblReportResultsDemographics').hide();
     const res = await axios.get('https://script.google.com/macros/s/AKfycbxFPRq-4fY_oUSdkIkzf-4grcdcHSbbiZUNpsjzDVKhFvyFn0c/exec');
     const jres = await res.data;
-    LoadCurrentReport(jres);
+    let ready = false;
+    ready = await LoadCurrentReport(jres);
+    if(ready){
+        $('#loading').fadeOut();
+        $('#tblReportResultsDemographics').fadeIn();
+
+    }
     // const table = document.querySelector('#example');
     // await jres.forEach(async function (datarow) {
     // 	let newRow = await document.createElement('tr');
